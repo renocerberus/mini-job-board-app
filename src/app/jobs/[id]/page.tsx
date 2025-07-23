@@ -125,10 +125,11 @@ export default async function JobDetails({ params }: { params: Promise<{ id: str
   }
 
   return (
-    <div className="flex flex-col w-full py-8 px-10 gap-6">
+    <div className="flex flex-col w-full py-6 sm:py-8 px-4 sm:px-10 gap-6">
       <BackHeader label="Back to Results" />
-      <div className="flex flex-row w-full gap-6">
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col lg:flex-row w-full gap-6">
+        {/* Company Logo and Apply Button - Mobile: Top, Desktop: Left */}
+        <div className="flex flex-col gap-4 items-center lg:items-start">
           <CompanyLogoInitial
             companyName="Reno Technologies, LLC"
             width={200}
@@ -136,20 +137,22 @@ export default async function JobDetails({ params }: { params: Promise<{ id: str
           />
           <ApplyButton jobId={job.id} />
         </div>
+        
+        {/* Job Details - Mobile: Bottom, Desktop: Right */}
         <div className="flex flex-col w-full">
-          <div className="flex flex-row gap-2 items-center justify-between">
-            <h1 className="text-4xl font-bold">{job.title}</h1>
+          <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center justify-between">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{job.title}</h1>
             <JobTypeBadge jobType={job.job_type || APP_CONFIG.DEFAULTS.JOB_TYPE} />
           </div>
-          <p className="text-lg text-tertiary font-semibold">
+          <p className="text-base sm:text-lg text-tertiary font-semibold mt-2">
             {job.company_name} - {job.location}
           </p>
-          <p className="text-lg text-disabled font-semibold">
+          <p className="text-base sm:text-lg text-disabled font-semibold">
             Posted {formatDistanceToNow(job.created_at)} ago
           </p>
-          <div className="flex flex-col gap-2 mt-10">
-            <h2 className="text-2xl font-bold">About the Job</h2>
-            <p className="text-base text-primary font-medium">
+          <div className="flex flex-col gap-2 mt-6 sm:mt-10">
+            <h2 className="text-xl sm:text-2xl font-bold">About the Job</h2>
+            <p className="text-sm sm:text-base text-primary font-medium">
               {job.description}
             </p>
           </div>

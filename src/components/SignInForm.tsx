@@ -49,7 +49,7 @@ export default function SignInForm({
     }
   };
   return (
-    <div className="flex flex-col gap-2 w-full h-full mt-10 overflow-y-scroll">
+    <div className="flex flex-col gap-4 w-full h-full mt-6 sm:mt-10 overflow-y-scroll px-2 sm:px-0">
       <TextField
         label="Email"
         type="email"
@@ -64,17 +64,17 @@ export default function SignInForm({
         value={password}
         onChange={setPassword}
       />
-      <div className="flex flex-col gap-4 mt-10">
+      <div className="flex flex-col gap-4 mt-6 sm:mt-10">
         <Button
           type="primary"
           onClick={handleSignIn}
           label={isLoading ? "Signing In..." : "Sign In"}
           disabled={isLoading}
         />
-        <p className="text-center text-base">
+        <p className="text-center text-sm sm:text-base">
           Don&apos;t have an account?{" "}
           <span
-            className="text-tertiary font-semibold cursor-pointer"
+            className="text-tertiary font-semibold cursor-pointer hover:underline transition-colors"
             onClick={() => onChangeMode("signup")}
           >
             Sign Up

@@ -31,7 +31,7 @@ export default function SearchResults({
   };
 
   return (
-    <div className="flex flex-col w-full py-8 px-10 gap-6">
+    <div className="flex flex-col w-full py-6 sm:py-8 px-4 sm:px-10 gap-6">
       <ResultsCount jobs={jobs} />
       <JobList
         jobs={jobs}

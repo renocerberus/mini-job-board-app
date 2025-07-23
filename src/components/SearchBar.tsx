@@ -82,21 +82,28 @@ export default function SearchBar({
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full">
-      <div className="flex flex-row items-center gap-2 w-full border-2 border-primary rounded-xl p-2 bg-white">
-        <Search className="w-8 h-8 text-primary" />
-        <input
-          type="text"
-          placeholder="Search by job title or company name.."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full bg-transparent text-tertiary focus:outline-none text-lg"
-        />
-        <Button label="Clear" type="text-only" onClick={handleClear} />
-        <Button label="Search" type="primary" onClick={handleSearch} />
+    <div className="flex flex-col gap-5 w-full">
+      {/* Search Input - Mobile: Stack vertically, Desktop: Horizontal */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full border-2 border-primary rounded-xl p-3 sm:p-4 bg-white">
+        <div className="flex items-center gap-3 flex-1">
+          <Search className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+          <input
+            type="text"
+            placeholder="Search by job title or company name.."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full bg-transparent text-tertiary focus:outline-none text-base sm:text-lg h-10 sm:h-12"
+          />
+        </div>
+        <div className="flex gap-3 sm:flex-shrink-0">
+          <Button label="Clear" type="text-only" onClick={handleClear} />
+          <Button label="Search" type="primary" onClick={handleSearch} />
+        </div>
       </div>
+      
+      {/* Filters - Stack vertically on mobile */}
       {hasFilters && (
-        <div className="flex flex-row items-center gap-2 w-full">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
           <Filter
             type="job-type"
             value={jobTypeFilter}

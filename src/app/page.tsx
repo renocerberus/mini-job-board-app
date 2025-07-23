@@ -9,7 +9,7 @@ export default function Home() {
     <div className="font-sans">
       <main className="flex flex-col">
         <div className="flex flex-col w-full bg-gradient-to-r from-tertiary to-primary">
-          <div className="flex flex-col w-full py-8 px-10">
+          <div className="flex flex-col w-full py-6 sm:py-8 px-4 sm:px-10">
             <SearchBar hasFilters isRedirect />
           </div>
           <Onboarding />

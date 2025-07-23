@@ -310,9 +310,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="flex flex-col w-full min-h-screen py-8 px-10 gap-10 bg-white">
-        <div className="flex flex-row justify-between items-center">
-          <h1 className="text-3xl font-bold text-primary">
+      <div className="flex flex-col w-full min-h-screen py-6 sm:py-8 px-4 sm:px-10 gap-6 sm:gap-10 bg-white">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary">
             Hello, {user?.user_metadata?.company_name}!
           </h1>
           <Button

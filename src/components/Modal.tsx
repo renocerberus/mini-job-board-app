@@ -16,11 +16,11 @@ export default function Modal({
   };
   return (
     <div
-      className="fixed inset-0 bg-black/50 flex justify-center z-20"
+      className="fixed inset-0 bg-black/50 flex justify-center items-center z-20 p-4"
       onClick={handleBackdropClick}
     >
       <div
-        className="flex flex-row w-1/2 max-h-[720px] h-full px-10 py-8 overflow-y-scroll justify-center"
+        className="flex flex-col w-full max-w-5xl max-h-[85vh] h-full rounded-lg overflow-hidden"
         onClick={handleModalClick}
       >
         {children}

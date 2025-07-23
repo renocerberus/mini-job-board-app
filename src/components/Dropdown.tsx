@@ -47,23 +47,23 @@ export default function Dropdown({
   };
 
   return (
-    <div className="flex flex-col gap-2 w-[200px]">
-      <label className="text-base font-semibold">{label}</label>
+    <div className="flex flex-col gap-3 w-full sm:w-[200px]">
+      {label && <label className="text-sm sm:text-base font-semibold">{label}</label>}
       <div className="relative" ref={dropdownRef}>
         <button
           type="button"
-          className={`w-full px-3 py-2 text-left border border-primary rounded-md shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-tertiary ${
+          className={`w-full px-4 py-4 sm:py-3 text-left border border-primary rounded-lg shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
             disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:border-gray-400"
           }`}
           onClick={() => !disabled && setIsOpen(!isOpen)}
           disabled={disabled}
         >
-          <span className={selectedOption ? "text-primary" : "text-primary"}>
+          <span className={`block truncate ${selectedOption ? "text-primary" : "text-primary"}`}>
             {selectedOption ? selectedOption.label : placeholder}
           </span>
-          <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+          <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
             <ChevronDown
-              className={`w-6 h-6 text-primary transition-transform ${
+              className={`w-5 h-5 sm:w-6 sm:h-6 text-primary transition-transform ${
                 isOpen ? "rotate-180" : "rotate-0"
               }`}
             />
@@ -71,12 +71,12 @@ export default function Dropdown({
         </button>
         
         {isOpen && (
-          <div className="absolute z-10 w-full mt-1 bg-white border border-disabled rounded-md shadow-lg max-h-60 overflow-auto">
+          <div className="absolute z-10 w-full mt-2 bg-white border border-disabled rounded-lg shadow-lg max-h-60 overflow-auto">
             {options.map((option) => (
               <button
                 key={option.value}
                 type="button"
-                className={`w-full px-3 py-2 text-left hover:bg-disabled hover:text-white focus:bg-tertiary focus:outline-none ${
+                className={`w-full px-4 py-4 sm:py-3 text-left hover:bg-disabled hover:text-white focus:bg-tertiary focus:outline-none transition-colors ${
                   option.value === value ? "bg-tertiary text-white" : "text-primary"
                 }`}
                 onClick={() => handleOptionClick(option.value)}

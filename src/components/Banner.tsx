@@ -13,7 +13,7 @@ export default function Banner() {
           className="w-61 h-35 object-contain"
         />
       </div>
-      <div className="flex flex-col w-full py-8 px-10 absolute justify-center">
+      <div className="flex flex-col w-full py-8 px-10 bg-black/50 absolute justify-center">
         <BannerCaption
           title="Let&apos;s find your dream job"
           subtitle="Discover the best remote jobs at top remote companies."

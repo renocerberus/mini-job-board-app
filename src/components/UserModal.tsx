@@ -19,36 +19,41 @@ export default function UserModal({ onClose }: { onClose: () => void }) {
 
   return (
     <Modal onClose={onClose}>
-      <div className="w-1/2 h-full bg-gradient-to-b from-primary to-tertiary flex flex-col gap-4 justify-between">
-        <Image
-          src="/logo.svg"
-          alt="Jobshare logo"
-          width={140}
-          height={40}
-          className="w-40 object-contain ml-4 mt-4"
-        />
-        <div className="flex flex-col gap-4 justify-center items-center">
-          <BannerCaption
-            title={bannerCaptionTitle}
-            subtitle={bannerCaptionSubtitle}
+      <div className="flex flex-col lg:flex-row w-full h-full">
+        {/* Banner Section - Mobile: Top, Desktop: Left */}
+        <div className="w-full lg:w-2/5 h-56 lg:h-full bg-gradient-to-b from-primary to-tertiary flex flex-col gap-6 justify-between relative">
+          <Image
+            src="/logo.svg"
+            alt="Jobshare logo"
+            width={140}
+            height={40}
+            className="w-32 lg:w-36 object-contain ml-6 mt-6"
+          />
+          <div className="flex flex-col gap-6 justify-center items-center px-6">
+            <BannerCaption
+              title={bannerCaptionTitle}
+              subtitle={bannerCaptionSubtitle}
+            />
+          </div>
+          <Image
+            src="/banner.svg"
+            alt="Banner"
+            width={246}
+            height={140}
+            className="w-32 lg:w-48 h-20 lg:h-28 object-contain self-end mr-6 mb-6"
           />
         </div>
-        <Image
-          src="/banner.svg"
-          alt="Banner"
-          width={246}
-          height={140}
-          className="w-61 h-35 object-contain self-end"
-        />
-      </div>
-      <div className="w-1/2 h-full bg-white p-4">
-        <div className="flex flex-col w-full h-full">
-          <CloseButton type="primary" onClick={onClose} />
-          {mode === "signup" ? (
-            <SignUpForm onChangeMode={setMode} />
-          ) : (
-            <SignInForm onChangeMode={setMode} onClose={onClose} />
-          )}
+        
+        {/* Form Section - Mobile: Bottom, Desktop: Right */}
+        <div className="w-full lg:w-3/5 h-full bg-white p-6 flex flex-col">
+          <div className="flex flex-col w-full h-full">
+            <CloseButton type="primary" onClick={onClose} />
+            {mode === "signup" ? (
+              <SignUpForm onChangeMode={setMode} />
+            ) : (
+              <SignInForm onChangeMode={setMode} onClose={onClose} />
+            )}
+          </div>
         </div>
       </div>
     </Modal>

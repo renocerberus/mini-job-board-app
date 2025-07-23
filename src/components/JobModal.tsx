@@ -57,11 +57,11 @@ export default function JobModal({
 
   return (
     <Modal onClose={onClose}>
-      <div className="w-full h-full bg-white flex flex-col gap-4 justify-between p-4 overflow-y-scroll">
+      <div className="w-full h-full bg-white flex flex-col gap-6 justify-between p-6 overflow-y-scroll">
         <CloseButton onClick={onClose} />
-        <div className="flex flex-col gap-4 p-10">
-          <h1 className="text-2xl font-bold text-primary">{modalTitle}</h1>
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6 p-6 sm:p-8 lg:p-10">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary">{modalTitle}</h1>
+          <div className="flex flex-col gap-6">
             <TextField
               label="Job Title"
               type="text"
@@ -107,7 +107,7 @@ export default function JobModal({
               onChange={formHandlers.setDescription}
             />
           </div>
-          <div className="flex flex-row gap-4 justify-end">
+          <div className="flex flex-col sm:flex-row gap-4 justify-end">
             <Button
               type="outline"
               label="Cancel"
